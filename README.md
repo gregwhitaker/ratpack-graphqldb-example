@@ -1,5 +1,8 @@
 # ratpack-graphqldb-example
 
+## Bugs and Feedback
+For bugs, questions, and discussions please use the [Github Issues](https://github.com/gregwhitaker/ratpack-graphqldb-example/issues).
+
 ## License
 MIT License
 
