@@ -34,13 +34,13 @@ public class GraphQLModule extends AbstractModule {
     public RuntimeWiring runtimeWiring(Map<String, DataFetcher> dataFetchers) {
         return RuntimeWiring.newRuntimeWiring()
                 .type("QueryType", wiring -> wiring
-                        .dataFetcher("allLinks", dataFetchers.get(AllLinksQuery.class))
-                        .dataFetcher("link", dataFetchers.get(LinkQuery.class))
+                        .dataFetcher("allLinks", dataFetchers.get(AllLinksQuery.class.getName()))
+                        .dataFetcher("link", dataFetchers.get(LinkQuery.class.getName()))
                 )
                 .type("MutationType", wiring -> wiring
-                        .dataFetcher("linkSave", dataFetchers.get(SaveLinkMutator.class))
-                        .dataFetcher("linkUpdate", dataFetchers.get(UpdateLinkMutator.class))
-                        .dataFetcher("linkDelete", dataFetchers.get(DeleteLinkMutator.class))
+                        .dataFetcher("linkSave", dataFetchers.get(SaveLinkMutator.class.getName()))
+                        .dataFetcher("linkUpdate", dataFetchers.get(UpdateLinkMutator.class.getName()))
+                        .dataFetcher("linkDelete", dataFetchers.get(DeleteLinkMutator.class.getName()))
                 )
                 .build();
     }
