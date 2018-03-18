@@ -98,7 +98,11 @@ public class DefaultLinkRepository implements LinkRepository {
             ps.setString(2, link.getDescription());
             ps.setLong(3, id);
 
-            return null;
+            if (ps.executeUpdate() == 0) {
+                throw new SQLException("No rows affected");
+            }
+
+            return findOne(id);
         } catch (SQLException e) {
             throw new RuntimeException("Updating link failed!", e);
         }
@@ -107,16 +111,21 @@ public class DefaultLinkRepository implements LinkRepository {
     @Override
     public boolean delete(Long id) {
         if (findOne(id) != null) {
-            throw new LinkNotFoundException(id);
+            try (Connection conn = dataSource.getConnection();
+                 PreparedStatement ps = conn.prepareStatement("DELETE FROM public.link WHERE link_id = ?")) {
+                ps.setLong(1, id);
+
+                if (ps.executeUpdate() == 0) {
+                    throw new SQLException("No rows affected");
+                }
+
+                return true;
+            } catch (SQLException e) {
+                throw new RuntimeException("Deleting link failed!", e);
+            }
         }
 
-        try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement("DELETE FROM public.link WHERE link_id = ?")) {
-            ps.setLong(1, id);
-
-            return true;
-        } catch (SQLException e) {
-            throw new RuntimeException("Deleting link failed!", e);
-        }
+        // If the link does not exist just ignore the request and return success
+        return true;
     }
 }
