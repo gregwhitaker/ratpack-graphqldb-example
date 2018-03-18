@@ -3,15 +3,16 @@
 ## Save Link
 Saves a new link in the database.
 
+### Request
+
 Name: linkSave
 
 Arguments:
+
 | Property    | Type   | Required | Description                 |
 |-------------|--------|----------|-----------------------------|
 | url         | String | False    | The url of the link         |
 | description | String | False    | The description of the link |
-
-Returns: Link
 
 Example:
 
@@ -22,3 +23,5 @@ Example:
           description
         }
     }
+    
+### Response
