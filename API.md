@@ -17,6 +17,7 @@ Retrieves all links in the database.
 
 ### Request
 Name: allLinks
+
 Type: Link
 
 | Property    | Type   | Description                 |
