@@ -2,6 +2,9 @@
 
 An example of exposing database data using [GraphQL](http://graphql.org/) and [Ratpack](https://www.ratpack.io).
 
+## Prerequisites
+
+
 ## Running the Example
 You can start the example by running the following Gradle command:
 
