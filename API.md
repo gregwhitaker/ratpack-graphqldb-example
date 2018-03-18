@@ -32,3 +32,15 @@ Type: Link
 | id          | String | The link identifier         |
 | url         | String | The url of the link         |
 | description | String | The description of the link |
+
+Example:
+
+    {
+      "data": {
+        "linkSave": {
+          "id": "4",
+          "url": "http://www.test.com",
+          "description": "This is a test"
+        }
+      }
+    }
