@@ -13,8 +13,10 @@ The following API is exposed by the ratpack-graphqldb-example service.
 * [Delete Link](#delete-link)
 
 ## <a name="get-all-links"></a>Get All Links
+Retrieves all links in the database.
 
 ## <a name="get-link"></a>Get Link
+Retrieves a link from the database.
 
 ## <a name="save-link"></a>Save Link
 Saves a new link in the database.
@@ -61,5 +63,7 @@ Example:
     }
     
 ## <a name="update-link"></a>Update Link
+Updates an existing link in the database.
 
 ## <a name="delete-link"></a>Delete Link
+Deletes an existing link from the database.
