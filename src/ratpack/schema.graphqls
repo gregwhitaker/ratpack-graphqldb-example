@@ -5,10 +5,13 @@ schema {
 
 type QueryType {
   allLinks: [Link]
+  link( id: Long!): Link
 }
 
 type MutationType {
-  linkCreate( url: String! description: String!): Link
+  linkSave( url: String! description: String!): Link
+  linkUpdate( id: Long! url: String description: String): Link
+  linkDelete( id: Long!)
 }
 
 type Link {

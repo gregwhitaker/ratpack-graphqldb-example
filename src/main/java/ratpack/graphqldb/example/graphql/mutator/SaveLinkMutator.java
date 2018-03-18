@@ -4,7 +4,7 @@ import graphql.schema.DataFetcher;
 import graphql.schema.DataFetchingEnvironment;
 import ratpack.graphqldb.example.data.link.model.Link;
 
-public class CreateLinkMutator implements DataFetcher<Link> {
+public class SaveLinkMutator implements DataFetcher<Link> {
 
     @Override
     public Link get(DataFetchingEnvironment environment) {
