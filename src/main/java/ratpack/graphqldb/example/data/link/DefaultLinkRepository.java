@@ -31,7 +31,7 @@ public class DefaultLinkRepository implements LinkRepository {
                 List<Link> links = new ArrayList<>();
 
                 while (rs.next()) {
-                    links.add(new Link(rs.getString("link_id"),
+                    links.add(new Link(Long.toString(rs.getLong("link_id")),
                             rs.getString("link_url"),
                             rs.getString("link_desc")));
                 }
@@ -44,13 +44,13 @@ public class DefaultLinkRepository implements LinkRepository {
     }
 
     @Override
-    public Link findOne(String id) {
+    public Link findOne(Long id) {
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.link WHERE link_id = ?")) {
 
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    return new Link(rs.getString("link_id"),
+                    return new Link(Long.toString(rs.getLong("link_id")),
                             rs.getString("link_url"),
                             rs.getString("link_desc"));
                 }
@@ -73,7 +73,7 @@ public class DefaultLinkRepository implements LinkRepository {
     }
 
     @Override
-    public Link update(String id, Link link) {
+    public Link update(Long id, Link link) {
         if (findOne(id) != null) {
             // TODO: Make this a more explicit exception
             throw new RuntimeException();
@@ -88,7 +88,7 @@ public class DefaultLinkRepository implements LinkRepository {
     }
 
     @Override
-    public boolean delete(String id) {
+    public boolean delete(Long id) {
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("DELETE FROM public.link WHERE link_id = ?")) {
             return true;

@@ -22,6 +22,6 @@ public class UpdateLinkMutator implements DataFetcher<Link> {
 
         Link link = new Link(id, url, desc);
 
-        return linkRepo.update(id, link);
+        return linkRepo.update(Long.parseLong(id), link);
     }
 }

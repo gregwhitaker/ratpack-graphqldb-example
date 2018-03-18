@@ -22,7 +22,7 @@ public interface LinkRepository {
      * @param id link identifier
      * @return
      */
-    Link findOne(String id);
+    Link findOne(Long id);
 
     /**
      * Save a new link to the repository.
@@ -39,12 +39,12 @@ public interface LinkRepository {
      * @param link updated link
      * @return
      */
-    Link update(String id, Link link);
+    Link update(Long id, Link link);
 
     /**
      * Delete a link from the repository.
      *
      * @param id link identifier
      */
-    boolean delete(String id);
+    boolean delete(Long id);
 }

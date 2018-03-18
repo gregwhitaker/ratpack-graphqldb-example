@@ -18,6 +18,6 @@ public class LinkQuery implements DataFetcher<Link> {
     public Link get(DataFetchingEnvironment environment) {
         String id = environment.getArgument("id");
 
-        return linkRepo.findOne(id);
+        return linkRepo.findOne(Long.parseLong(id));
     }
 }

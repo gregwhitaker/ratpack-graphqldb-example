@@ -17,6 +17,6 @@ public class DeleteLinkMutator implements DataFetcher<Boolean> {
     public Boolean get(DataFetchingEnvironment environment) {
         String id = environment.getArgument("id");
 
-        return linkRepo.delete(id);
+        return linkRepo.delete(Long.parseLong(id));
     }
 }
