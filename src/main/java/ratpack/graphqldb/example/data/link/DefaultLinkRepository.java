@@ -47,6 +47,7 @@ public class DefaultLinkRepository implements LinkRepository {
     public Link findOne(Long id) {
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.link WHERE link_id = ?")) {
+            ps.setLong(1, id);
 
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
@@ -66,6 +67,9 @@ public class DefaultLinkRepository implements LinkRepository {
     public Link save(String url, String description) {
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("INSERT INTO public.link (link_url, link_desc) VALUES (?, ?)")) {
+            ps.setString(1, url);
+            ps.setString(2, description);
+
             return null;
         } catch (SQLException e) {
             return null;
@@ -80,6 +84,10 @@ public class DefaultLinkRepository implements LinkRepository {
 
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("UPDATE public.link SET link_url = ?, link_desc = ? WHERE link_id = ?")) {
+            ps.setString(1, link.getUrl());
+            ps.setString(2, link.getDescription());
+            ps.setLong(3, id);
+
             return null;
         } catch (SQLException e) {
             return null;
@@ -91,9 +99,11 @@ public class DefaultLinkRepository implements LinkRepository {
         if (findOne(id) != null) {
             throw new LinkNotFoundException(id);
         }
-        
+
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("DELETE FROM public.link WHERE link_id = ?")) {
+            ps.setLong(1, id);
+
             return true;
         } catch (SQLException e) {
             return false;
