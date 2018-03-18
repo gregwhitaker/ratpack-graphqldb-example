@@ -15,6 +15,49 @@ The following API is exposed by the ratpack-graphqldb-example service.
 ## <a name="get-all-links"></a>Get All Links
 Retrieves all links in the database.
 
+### Request
+Name: allLinks
+Type: Link
+
+| Property    | Type   | Description                 |
+|-------------|--------|-----------------------------|
+| id          | String | The link identifier         |
+| url         | String | The url of the link         |
+| description | String | The description of the link |
+
+Example:
+
+    {
+      allLinks {
+        id
+        url
+        description
+      }
+    }
+    
+### Response
+Type: List
+
+Example:
+
+    {
+      "data": {
+        "allLinks": [
+          {
+            "id": "1",
+            "url": "http://www.google.com",
+            "description": "Google"
+          },
+          {
+            "id": "2",
+            "url": "http://www.test.com",
+            "description": "This is a test"
+          }
+        ]
+      }
+    }
+
+
 ## <a name="get-link"></a>Get Link
 Retrieves a link from the database.
 
