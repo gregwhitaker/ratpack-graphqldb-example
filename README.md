@@ -3,7 +3,7 @@
 An example of exposing database data using [GraphQL](http://graphql.org/) and [Ratpack](https://www.ratpack.io).
 
 ## Prerequisites
-This example requires that you have a running PostgreSQL database. You can start one as a Docker container using the following commands:
+This example requires that you have a running [PostgreSQL](https://www.postgresql.org/) database. You can start one as a Docker container using the following commands:
 
     $ docker pull postgres
     $ docker run -p 5432:5432 postgres
