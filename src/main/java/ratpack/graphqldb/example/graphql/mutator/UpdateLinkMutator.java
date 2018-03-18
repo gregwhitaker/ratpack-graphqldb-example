@@ -6,6 +6,9 @@ import graphql.schema.DataFetchingEnvironment;
 import ratpack.graphqldb.example.data.link.LinkRepository;
 import ratpack.graphqldb.example.data.link.model.Link;
 
+/**
+ * GraphQL mutator that updates an existing link in the repository.
+ */
 public class UpdateLinkMutator implements DataFetcher<Link> {
 
     @Inject

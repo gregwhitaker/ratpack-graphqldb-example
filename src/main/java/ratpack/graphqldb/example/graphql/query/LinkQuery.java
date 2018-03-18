@@ -6,6 +6,9 @@ import graphql.schema.DataFetchingEnvironment;
 import ratpack.graphqldb.example.data.link.LinkRepository;
 import ratpack.graphqldb.example.data.link.model.Link;
 
+/**
+ * GraphQL query that returns a single link from the repository.
+ */
 public class LinkQuery implements DataFetcher<Link> {
 
     @Inject

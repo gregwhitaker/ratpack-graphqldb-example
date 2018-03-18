@@ -5,6 +5,9 @@ import graphql.schema.DataFetcher;
 import graphql.schema.DataFetchingEnvironment;
 import ratpack.graphqldb.example.data.link.LinkRepository;
 
+/**
+ * GraphQL mutator that deletes a link from the repository.
+ */
 public class DeleteLinkMutator implements DataFetcher<Boolean> {
 
     @Inject

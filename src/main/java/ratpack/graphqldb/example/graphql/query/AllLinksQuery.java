@@ -8,6 +8,9 @@ import ratpack.graphqldb.example.data.link.model.Link;
 
 import java.util.List;
 
+/**
+ * GraphQL query that returns all links in the repository.
+ */
 public class AllLinksQuery implements DataFetcher<List<Link>> {
 
     @Inject
