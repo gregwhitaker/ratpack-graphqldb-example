@@ -26,7 +26,7 @@ public class DatabaseMigrator implements Service {
     @Override
     public void onStart(StartEvent event) throws Exception {
         LOG.info("Running Database Migration...");
-        
+
         Flyway flyway = new Flyway();
         flyway.setDataSource(dataSource);
         flyway.migrate();
