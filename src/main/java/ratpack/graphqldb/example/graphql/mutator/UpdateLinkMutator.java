@@ -13,6 +13,12 @@ public class UpdateLinkMutator implements DataFetcher<Link> {
 
     @Override
     public Link get(DataFetchingEnvironment environment) {
-        return null;
+        String id = environment.getArgument("id");
+        String url = environment.getArgument("url");
+        String desc = environment.getArgument("description");
+
+        Link link = new Link(id, url, desc);
+
+        return linkRepo.update(id, link);
     }
 }

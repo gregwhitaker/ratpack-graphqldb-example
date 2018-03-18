@@ -13,6 +13,9 @@ public class SaveLinkMutator implements DataFetcher<Link> {
 
     @Override
     public Link get(DataFetchingEnvironment environment) {
-        return null;
+        String url = environment.getArgument("url");
+        String desc = environment.getArgument("description");
+
+        return linkRepo.save(url, desc);
     }
 }

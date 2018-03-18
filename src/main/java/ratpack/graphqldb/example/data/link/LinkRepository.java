@@ -27,9 +27,10 @@ public interface LinkRepository {
     /**
      * Save a new link to the repository.
      *
-     * @param link {@link Link} to save
+     * @param url link url
+     * @param description link description
      */
-    Link save(Link link);
+    Link save(String url, String description);
 
     /**
      * Update a named link in the repository.

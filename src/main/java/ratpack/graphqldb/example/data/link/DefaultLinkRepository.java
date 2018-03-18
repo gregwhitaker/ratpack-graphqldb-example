@@ -44,7 +44,7 @@ public class DefaultLinkRepository implements LinkRepository {
     }
 
     @Override
-    public Link save(Link link) {
+    public Link save(String url, String description) {
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("")) {
             return null;
