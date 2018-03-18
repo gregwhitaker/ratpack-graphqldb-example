@@ -1,14 +1,29 @@
-group 'com.github.gregwhitaker'
-version '1.0-SNAPSHOT'
+plugins {
+    id 'com.gradle.build-scan' version '1.11'
+    id 'io.ratpack.ratpack-java' version '1.5.4'
+}
 
-apply plugin: 'java'
+buildScan {
+    licenseAgreementUrl = 'https://gradle.com/terms-of-service'
+    licenseAgree = 'yes'
+    publishAlways()
+}
 
+group = 'com.github.gregwhitaker'
+version = '0.1.0'
 sourceCompatibility = 1.8
 
 repositories {
+    jcenter()
     mavenCentral()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile ratpack.dependency('guice')
+    compile 'com.graphql-java:graphql-java:7.0'
+    compile 'com.graphql-java:graphql-java-tools:4.3.0'
+
+    runtime 'org.slf4j:slf4j-simple:1.7.22'
 }
+
+mainClassName = 'ratpack.graphqldb.example.Main'
