@@ -55,7 +55,7 @@ public class DefaultLinkRepository implements LinkRepository {
                             rs.getString("link_desc"));
                 }
 
-                throw new RuntimeException();
+                throw new LinkNotFoundException(id);
             }
         } catch (SQLException e) {
             return null;
@@ -75,8 +75,7 @@ public class DefaultLinkRepository implements LinkRepository {
     @Override
     public Link update(Long id, Link link) {
         if (findOne(id) != null) {
-            // TODO: Make this a more explicit exception
-            throw new RuntimeException();
+            throw new LinkNotFoundException(id);
         }
 
         try (Connection conn = dataSource.getConnection();
@@ -89,6 +88,10 @@ public class DefaultLinkRepository implements LinkRepository {
 
     @Override
     public boolean delete(Long id) {
+        if (findOne(id) != null) {
+            throw new LinkNotFoundException(id);
+        }
+        
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("DELETE FROM public.link WHERE link_id = ?")) {
             return true;
