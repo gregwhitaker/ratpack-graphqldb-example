@@ -1,10 +1,10 @@
 # API
+The following API is exposed by the ratpack-graphqldb-example service.
 
 ## Save Link
 Saves a new link in the database.
 
 ### Request
-
 Name: linkSave
 
 Arguments:
@@ -25,3 +25,10 @@ Example:
     }
     
 ### Response
+Type: Link
+
+| Property    | Type   | Description                 |
+|-------------|--------|-----------------------------|
+| id          | String | The link identifier         |
+| url         | String | The url of the link         |
+| description | String | The description of the link |
