@@ -29,7 +29,7 @@ public interface LinkRepository {
      *
      * @param link {@link Link} to save
      */
-    void save(Link link);
+    Link save(Link link);
 
     /**
      * Update a named link in the repository.
@@ -45,5 +45,5 @@ public interface LinkRepository {
      *
      * @param id link identifier
      */
-    void delete(String id);
+    boolean delete(String id);
 }

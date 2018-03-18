@@ -44,12 +44,12 @@ public class DefaultLinkRepository implements LinkRepository {
     }
 
     @Override
-    public void save(Link link) {
+    public Link save(Link link) {
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("")) {
-
+            return null;
         } catch (SQLException e) {
-
+            return null;
         }
     }
 
@@ -64,12 +64,12 @@ public class DefaultLinkRepository implements LinkRepository {
     }
 
     @Override
-    public void delete(String id) {
+    public boolean delete(String id) {
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("")) {
-
+            return true;
         } catch (SQLException e) {
-
+            return false;
         }
     }
 }

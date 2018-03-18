@@ -15,6 +15,6 @@ public class AllLinksQuery implements DataFetcher<List<Link>> {
 
     @Override
     public List<Link> get(DataFetchingEnvironment environment) {
-        return null;
+        return linkRepo.findAll();
     }
 }

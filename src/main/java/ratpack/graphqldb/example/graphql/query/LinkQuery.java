@@ -13,6 +13,8 @@ public class LinkQuery implements DataFetcher<Link> {
 
     @Override
     public Link get(DataFetchingEnvironment environment) {
-        return null;
+        String id = environment.getArgument("id");
+
+        return linkRepo.findOne(id);
     }
 }
