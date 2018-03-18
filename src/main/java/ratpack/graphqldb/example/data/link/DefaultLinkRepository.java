@@ -39,7 +39,7 @@ public class DefaultLinkRepository implements LinkRepository {
                 return links;
             }
         } catch (SQLException e) {
-            return null;
+            throw new RuntimeException("Query findAll failed!", e);
         }
     }
 
@@ -59,7 +59,7 @@ public class DefaultLinkRepository implements LinkRepository {
                 throw new LinkNotFoundException(id);
             }
         } catch (SQLException e) {
-            return null;
+            throw new RuntimeException("Query findOne failed!", e);
         }
     }
 
@@ -70,9 +70,19 @@ public class DefaultLinkRepository implements LinkRepository {
             ps.setString(1, url);
             ps.setString(2, description);
 
-            return null;
+            if (ps.executeUpdate() == 0) {
+                throw new SQLException("No rows affected");
+            }
+
+            try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    return new Link(generatedKeys.getLong(1), url, description);
+                } else {
+                    throw new SQLException("Unable to retrieve generated key");
+                }
+            }
         } catch (SQLException e) {
-            return null;
+            throw new RuntimeException("Creating link failed!", e);
         }
     }
 
@@ -90,7 +100,7 @@ public class DefaultLinkRepository implements LinkRepository {
 
             return null;
         } catch (SQLException e) {
-            return null;
+            throw new RuntimeException("Updating link failed!", e);
         }
     }
 
@@ -106,7 +116,7 @@ public class DefaultLinkRepository implements LinkRepository {
 
             return true;
         } catch (SQLException e) {
-            return false;
+            throw new RuntimeException("Deleting link failed!", e);
         }
     }
 }
