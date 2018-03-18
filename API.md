@@ -1,12 +1,12 @@
 # API
 The following API is exposed by the ratpack-graphqldb-example service.
 
-*Queries*
+**Queries**
 
 * [Get All Links](#get-all-links)
 * [Get Link](#get-link)
 
-*Mutators*
+**Mutators**
 
 * [Save Link](#save-link)
 * [Update Link](#update-link)
