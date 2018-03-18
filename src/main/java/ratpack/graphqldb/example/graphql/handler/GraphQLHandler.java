@@ -61,7 +61,6 @@ public class GraphQLHandler implements Handler {
                     .variables(variables)
                     .build();
 
-            // The graphql java implementation is blocking :(
             Blocking.get(() -> graphql.execute(executionInput))
                     .then(executionResult -> {
                                 Map<String, Object> result = new LinkedHashMap<>();

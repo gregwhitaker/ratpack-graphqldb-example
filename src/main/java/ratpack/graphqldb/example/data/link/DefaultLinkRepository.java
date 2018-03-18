@@ -26,7 +26,7 @@ public class DefaultLinkRepository implements LinkRepository {
     @Override
     public List<Link> findAll() {
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement("")) {
+             PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.link")) {
             return null;
         } catch (SQLException e) {
             return null;
@@ -36,7 +36,7 @@ public class DefaultLinkRepository implements LinkRepository {
     @Override
     public Link findOne(String id) {
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement("")) {
+             PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.link WHERE link_id = ?")) {
             return null;
         } catch (SQLException e) {
             return null;
@@ -46,7 +46,7 @@ public class DefaultLinkRepository implements LinkRepository {
     @Override
     public Link save(String url, String description) {
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement("")) {
+             PreparedStatement ps = conn.prepareStatement("INSERT INTO public.link (link_url, link_desc) VALUES (?, ?)")) {
             return null;
         } catch (SQLException e) {
             return null;
@@ -56,7 +56,7 @@ public class DefaultLinkRepository implements LinkRepository {
     @Override
     public Link update(String id, Link link) {
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement("")) {
+             PreparedStatement ps = conn.prepareStatement("UPDATE public.link SET link_url = ?, link_desc = ? WHERE link_id = ?")) {
             return null;
         } catch (SQLException e) {
             return null;
@@ -66,7 +66,7 @@ public class DefaultLinkRepository implements LinkRepository {
     @Override
     public boolean delete(String id) {
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement("")) {
+             PreparedStatement ps = conn.prepareStatement("DELETE FROM public.link WHERE link_id = ?")) {
             return true;
         } catch (SQLException e) {
             return false;
