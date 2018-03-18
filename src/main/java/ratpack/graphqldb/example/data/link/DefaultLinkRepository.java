@@ -55,6 +55,11 @@ public class DefaultLinkRepository implements LinkRepository {
 
     @Override
     public Link update(String id, Link link) {
+        if (findOne(id) != null) {
+            // TODO: Make this a more explicit exception
+            throw new RuntimeException();
+        }
+
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("UPDATE public.link SET link_url = ?, link_desc = ? WHERE link_id = ?")) {
             return null;
