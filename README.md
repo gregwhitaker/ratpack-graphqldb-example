@@ -3,7 +3,10 @@
 An example of exposing database data using [GraphQL](http://graphql.org/) and [Ratpack](https://www.ratpack.io).
 
 ## Prerequisites
+This example requires that you have a running Postgres database. You can start one as a Docker container using the following commands:
 
+    $ docker pull postgres
+    $ docker run -p 5432:5432 postgres
 
 ## Running the Example
 You can start the example by running the following Gradle command:
