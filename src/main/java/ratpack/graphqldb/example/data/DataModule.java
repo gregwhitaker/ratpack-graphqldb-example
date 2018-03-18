@@ -18,6 +18,7 @@ public class DataModule extends AbstractModule {
 
     @Override
     protected void configure() {
+        bind(DatabaseMigrator.class);
         bind(LinkRepository.class).to(DefaultLinkRepository.class);
     }
 
