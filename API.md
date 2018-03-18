@@ -1,22 +1,22 @@
 # API
 The following API is exposed by the ratpack-graphqldb-example service.
 
-Queries
+*Queries*
 
-* Get All Links
-* Get Link
+* [Get All Links](#get-all-links)
+* [Get Link](#get-link)
 
-Mutators
+*Mutators*
 
-* Save Link
-* Update Link
-* Delete Link
+* [Save Link](#save-link)
+* [Update Link](#update-link)
+* [Delete Link](#delete-link)
 
-## Get All Links
+## <a name="get-all-links"></a>Get All Links
 
-## Get Link
+## <a name="get-link"></a>Get Link
 
-## Save Link
+## <a name="save-link"></a>Save Link
 Saves a new link in the database.
 
 ### Request
@@ -60,6 +60,6 @@ Example:
       }
     }
     
-## Update Link
+## <a name="update-link"></a>Update Link
 
-## Delete Link
+## <a name="delete-link"></a>Delete Link
