@@ -1,5 +1,7 @@
 # ratpack-graphqldb-example
 
+An example of exposing database data using [GraphQL](http://graphql.org/) and [Ratpack](https://www.ratpack.io).
+
 ## Bugs and Feedback
 For bugs, questions, and discussions please use the [Github Issues](https://github.com/gregwhitaker/ratpack-graphqldb-example/issues).
 
