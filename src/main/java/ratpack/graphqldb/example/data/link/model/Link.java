@@ -1,11 +1,11 @@
 package ratpack.graphqldb.example.data.link.model;
 
 public class Link {
-    private final long id;
+    private final String id;
     private final String url;
     private final String description;
 
-    public Link(final long id, final String url, final String description) {
+    public Link(final String id, final String url, final String description) {
         this.id = id;
         this.url = url;
         this.description = description;
@@ -14,7 +14,7 @@ public class Link {
     /**
      * @return link identifier
      */
-    public long getId() {
+    public String getId() {
         return id;
     }
 

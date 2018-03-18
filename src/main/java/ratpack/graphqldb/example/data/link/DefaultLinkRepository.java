@@ -34,7 +34,7 @@ public class DefaultLinkRepository implements LinkRepository {
     }
 
     @Override
-    public Link findOne(long id) {
+    public Link findOne(String id) {
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("")) {
             return null;
@@ -54,7 +54,7 @@ public class DefaultLinkRepository implements LinkRepository {
     }
 
     @Override
-    public Link update(long id, Link link) {
+    public Link update(String id, Link link) {
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("")) {
             return null;
@@ -64,7 +64,7 @@ public class DefaultLinkRepository implements LinkRepository {
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(String id) {
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("")) {
 
