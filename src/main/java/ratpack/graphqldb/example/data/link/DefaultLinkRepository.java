@@ -2,14 +2,14 @@ package ratpack.graphqldb.example.data.link;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import ratpack.graphqldb.example.data.link.model.Link;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,7 +18,6 @@ import java.util.List;
  */
 @Singleton
 public class DefaultLinkRepository implements LinkRepository {
-    private static final Logger LOG = LoggerFactory.getLogger(DefaultLinkRepository.class);
 
     @Inject
     private DataSource dataSource;
@@ -27,7 +26,18 @@ public class DefaultLinkRepository implements LinkRepository {
     public List<Link> findAll() {
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.link")) {
-            return null;
+
+            try (ResultSet rs = ps.executeQuery()) {
+                List<Link> links = new ArrayList<>();
+
+                while (rs.next()) {
+                    links.add(new Link(rs.getString("link_id"),
+                            rs.getString("link_url"),
+                            rs.getString("link_desc")));
+                }
+
+                return links;
+            }
         } catch (SQLException e) {
             return null;
         }
@@ -37,7 +47,16 @@ public class DefaultLinkRepository implements LinkRepository {
     public Link findOne(String id) {
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.link WHERE link_id = ?")) {
-            return null;
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    return new Link(rs.getString("link_id"),
+                            rs.getString("link_url"),
+                            rs.getString("link_desc"));
+                }
+
+                throw new RuntimeException();
+            }
         } catch (SQLException e) {
             return null;
         }
