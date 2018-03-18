@@ -7,6 +7,10 @@ import ratpack.graphqldb.example.data.link.model.Link;
 import javax.sql.DataSource;
 import java.util.List;
 
+/**
+ * Default implementation of {@link LinkRepository} that accesses link
+ * objects stored in a SQL database.
+ */
 @Singleton
 public class DefaultLinkRepository implements LinkRepository {
 
@@ -19,7 +23,7 @@ public class DefaultLinkRepository implements LinkRepository {
     }
 
     @Override
-    public Link findOne(String name) {
+    public Link findOne(long id) {
         return null;
     }
 
@@ -29,12 +33,12 @@ public class DefaultLinkRepository implements LinkRepository {
     }
 
     @Override
-    public Link update(String name, String link) {
+    public Link update(long id, Link link) {
         return null;
     }
 
     @Override
-    public void delete(String name) {
+    public void delete(long id) {
 
     }
 }
