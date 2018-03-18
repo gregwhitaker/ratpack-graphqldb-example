@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,7 +67,7 @@ public class DefaultLinkRepository implements LinkRepository {
     @Override
     public Link save(String url, String description) {
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement("INSERT INTO public.link (link_url, link_desc) VALUES (?, ?)")) {
+             PreparedStatement ps = conn.prepareStatement("INSERT INTO public.link (link_url, link_desc) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, url);
             ps.setString(2, description);
 
