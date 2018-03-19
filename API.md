@@ -209,3 +209,29 @@ Example:
 
 ## <a name="delete-link"></a>Delete Link
 Deletes an existing link from the database.
+
+### Request
+Name: linkDelete
+
+Arguments:
+
+| Property    | Type   | Required | Description                 |
+|-------------|--------|----------|-----------------------------|
+| id          | String | True     | The link identifier         |
+
+Example:
+
+    mutation linkDelete {
+        linkDelete(id: "1")
+    }
+
+### Response
+Type: Boolean
+
+Example:
+
+    {
+      "data": {
+        "linkDelete": true
+      }
+    }
