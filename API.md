@@ -165,5 +165,47 @@ Example:
 ## <a name="update-link"></a>Update Link
 Updates an existing link in the database.
 
+### Request
+Name: linkUpdate
+
+Arguments:
+
+| Property    | Type   | Required | Description                 |
+|-------------|--------|----------|-----------------------------|
+| id          | String | True     | The link identifier         |
+| url         | String | False    | The url of the link         |
+| description | String | False    | The description of the link |
+
+Example:
+
+    mutation linkUpdate {
+        linkUpdate(id: "1", url: "http://www.google.com/test", description: "This is a test") {
+          id
+          url
+          description
+        }
+    }
+
+### Response
+Type: Link
+
+| Property    | Type   | Description                 |
+|-------------|--------|-----------------------------|
+| id          | String | The link identifier         |
+| url         | String | The url of the link         |
+| description | String | The description of the link |
+
+Example:
+
+    {
+      "data": {
+        "linkUpdate": {
+          "id": "1",
+          "url": "http://www.google.com/test",
+          "description": "This is a test"
+        }
+      }
+    }
+
 ## <a name="delete-link"></a>Delete Link
 Deletes an existing link from the database.

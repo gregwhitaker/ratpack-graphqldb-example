@@ -89,7 +89,7 @@ public class DefaultLinkRepository implements LinkRepository {
 
     @Override
     public Link update(Long id, Link link) {
-        if (findOne(id) != null) {
+        if (findOne(id) == null) {
             throw new LinkNotFoundException(id);
         }
 
