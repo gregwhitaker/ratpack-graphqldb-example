@@ -1,4 +1,5 @@
 # ratpack-graphqldb-example
+[![Build Status](https://travis-ci.org/gregwhitaker/ratpack-graphqldb-example.svg?branch=master)](https://travis-ci.org/gregwhitaker/ratpack-graphqldb-example)
 
 An example of exposing database data using [GraphQL](http://graphql.org/) and [Ratpack](https://www.ratpack.io).
 
