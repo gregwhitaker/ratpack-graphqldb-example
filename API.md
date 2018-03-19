@@ -18,7 +18,9 @@ Retrieves all links in the database.
 ### Request
 Name: allLinks
 
-Type: Link
+Arguments: None
+
+Query Fields:
 
 | Property    | Type   | Description                 |
 |-------------|--------|-----------------------------|
@@ -37,7 +39,13 @@ Example:
     }
     
 ### Response
-Type: List
+Type: List of Link
+
+| Property    | Type   | Description                 |
+|-------------|--------|-----------------------------|
+| id          | String | The link identifier         |
+| url         | String | The url of the link         |
+| description | String | The description of the link |
 
 Example:
 
@@ -67,13 +75,11 @@ Name: allLinks
 
 Arguments:
 
-Arguments:
-
 | Property    | Type   | Required | Description                 |
 |-------------|--------|----------|-----------------------------|
 | id          | String | True     | The link identifier         |
 
-Type: Link
+Query Fields:
 
 | Property    | Type   | Description                 |
 |-------------|--------|-----------------------------|
@@ -88,6 +94,27 @@ Example:
         id
         url
         description
+      }
+    }
+    
+### Response
+Type: Link
+
+| Property    | Type   | Description                 |
+|-------------|--------|-----------------------------|
+| id          | String | The link identifier         |
+| url         | String | The url of the link         |
+| description | String | The description of the link |
+
+Example:
+
+    {
+      "data": {
+        "link": {
+          "id": "1",
+          "url": "http://www.google.com",
+          "description": "Google"
+        }
       }
     }
     
