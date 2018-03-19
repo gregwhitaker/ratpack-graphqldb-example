@@ -62,6 +62,35 @@ Example:
 ## <a name="get-link"></a>Get Link
 Retrieves a link from the database.
 
+### Request
+Name: allLinks
+
+Arguments:
+
+Arguments:
+
+| Property    | Type   | Required | Description                 |
+|-------------|--------|----------|-----------------------------|
+| id          | String | True     | The link identifier         |
+
+Type: Link
+
+| Property    | Type   | Description                 |
+|-------------|--------|-----------------------------|
+| id          | String | The link identifier         |
+| url         | String | The url of the link         |
+| description | String | The description of the link |
+
+Example:
+
+    {
+      link(id: "1") {
+        id
+        url
+        description
+      }
+    }
+    
 ## <a name="save-link"></a>Save Link
 Saves a new link in the database.
 
